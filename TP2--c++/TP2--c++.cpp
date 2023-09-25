@@ -5,12 +5,136 @@
 #include<string>
 #include<sstream>
 
-#define multiplier(x,y) ((x) * (y))
+#pragma once 
+
+
+#define multiplier(x,y) (x * y)
 
 using namespace std;
 using std::cout;
 using std::cin;
 
+
+// Pour faire un triangle il faut :
+// 1 : verifier la hauteur
+// 2 : verifier la largeur
+// 3 : On définit l'aire
+// 4 : On définit le périmetre
+// 5 : On fait une fct qui affiche 'hauteur/largeur/aire/périmetre)
+// 6 : On dessine le périmetre
+// 7 : On dessine l'aire
+
+
+class Rectangle
+{
+private:
+	int width;
+	int height;
+public:	
+	void setWidth(int width);
+	void setHeight(int height);
+	int getArea();
+	int getPerimeter();
+	void print();
+	void drawArea(const char& pattern);
+	void drawPerimeter(const char& pattern);
+};
+
+void Rectangle::setWidth(int w) {
+
+	if (w > 10) {
+		cout << "La taille doit etre inferieur a 10 !" << endl;
+		cout << "width : " << endl;
+		cin >> w;
+	}
+	if (w <= 10)
+	{
+		width = w;
+	}
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+void TextRectangle::setHeight(int h)
+{
+	if (h > 10)
+	{
+		cout << "Height must be <= 10" << endl;
+		cout << "Height : " << endl;
+		cin >> h;
+	}
+	if (h <= 10)
+	{
+		height = h;
+	}
+}
+int TextRectangle::getArea()
+{
+	return width * height;
+}
+
+int TextRectangle::getPerimeter()
+{
+	return 2 * width + 2 * height;
+}
+void TextRectangle::print()
+{
+	cout << "Width : " << width << endl;
+	cout << "Height : " << height << endl;
+	cout << "Area : " << getArea() << endl;
+	cout << "Perimeter : " << getPerimeter() << endl;
+}
+
+void TextRectangle::drawArea(const char& pattern)
+{
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
+			cout << pattern;
+		}
+		cout << endl;
+	}
+}
+
+void TextRectangle::drawPerimeter(const char& pattern)
+{
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			if (j == 0 || j == width - 1)
+			{
+				cout << pattern;
+			}
+			else
+			{
+				if (i == 0 || i == height - 1)
+				{
+					cout << pattern;
+				}
+				else
+				{
+					cout << " ";
+				}
+			}
+		}
+		cout << endl;
+	}
+}
+ 
 
 int main()
 {
@@ -24,7 +148,7 @@ int main()
 	cin >> a;
 	cout << "Entrez une autre valeur :" << endl;
 	cin >> b;
-	cout << multiplier(a + 1, b + 1) << endl;
+	cout << multiplier(a, b) << endl;
 	
 	// LEs 2 lignes suivantes permettent d'effacer l'écran de la console
 	system("PAUSE");
@@ -94,6 +218,28 @@ int main()
 	}
 	system("PAUSE");
 	system("CLS");
+
+	// Exercice 4 
+
+
+	//char rect;
+	//int w, h;
+	//TextRectangle rectangle;
+	//cout << "Enter a width : " << endl;
+	//cin >> w;
+	//cout << "Enter a height : " << endl;
+	//cin >> h;
+	//rectangle.setWidth(w);
+	//rectangle.setHeight(h);
+	//rectangle.print();
+	//cout << "Entrez un caractère : ";
+	//cin >> rect;
+	//cout << endl;
+	//rectangle.drawArea(rect);
+	//cout << endl;
+	//rectangle.drawPerimeter(rect);
+
+
 }
 
 

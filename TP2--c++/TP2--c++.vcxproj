@@ -130,9 +130,6 @@
     <ClCompile Include="TP2--c++.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TP2.h" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
