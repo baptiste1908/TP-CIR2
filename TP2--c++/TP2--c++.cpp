@@ -16,7 +16,7 @@ using std::cin;
 
 
 // Pour faire un triangle il faut :
-// 1 : verifier la hauteur
+// 1 : verifier la hauteur 
 // 2 : verifier la largeur
 // 3 : On définit l'aire
 // 4 : On définit le périmetre
@@ -25,12 +25,14 @@ using std::cin;
 // 7 : On dessine l'aire
 
 
-class Rectangle
+class TextRectangle
 {
 private:
 	int width;
 	int height;
-public:	
+public:
+	int getWidth();
+	int getHeight();
 	void setWidth(int width);
 	void setHeight(int height);
 	int getArea();
@@ -40,39 +42,34 @@ public:
 	void drawPerimeter(const char& pattern);
 };
 
-void Rectangle::setWidth(int w) {
+int TextRectangle::getWidth()
+{
+	return width;
+}
 
-	if (w > 10) {
-		cout << "La taille doit etre inferieur a 10 !" << endl;
-		cout << "width : " << endl;
+int TextRectangle::getHeight()
+{
+	return height;
+}
+
+void TextRectangle::setWidth(int w)
+{
+	if (w > 10)
+	{
+		cout << "Width must be <= 10" << endl;
+		cout << "Width : " << endl;
 		cin >> w;
 	}
 	if (w <= 10)
 	{
 		width = w;
 	}
-
-	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-void TextRectangle::setHeight(int h)
-{
-	if (h > 10)
-	{
-		cout << "Height must be <= 10" << endl;
-		cout << "Height : " << endl;
+void TextRectangle::setHeight(int h) {
+	if (h > 10) {
+		cout << "La hauteur doit etre inferieur a 10 !" << endl;
+		cout << "height : " << endl;
 		cin >> h;
 	}
 	if (h <= 10)
@@ -80,6 +77,10 @@ void TextRectangle::setHeight(int h)
 		height = h;
 	}
 }
+
+
+
+
 int TextRectangle::getArea()
 {
 	return width * height;
@@ -222,22 +223,22 @@ int main()
 	// Exercice 4 
 
 
-	//char rect;
-	//int w, h;
-	//TextRectangle rectangle;
-	//cout << "Enter a width : " << endl;
-	//cin >> w;
-	//cout << "Enter a height : " << endl;
-	//cin >> h;
-	//rectangle.setWidth(w);
-	//rectangle.setHeight(h);
-	//rectangle.print();
-	//cout << "Entrez un caractère : ";
-	//cin >> rect;
-	//cout << endl;
-	//rectangle.drawArea(rect);
-	//cout << endl;
-	//rectangle.drawPerimeter(rect);
+	char rect;
+	int w, h;
+	TextRectangle rectangle;
+	cout << "Enter a width : " << endl;
+	cin >> w;
+	cout << "Enter a height : " << endl;
+	cin >> h;
+	rectangle.setWidth(w);
+	rectangle.setHeight(h);
+	rectangle.print();
+	cout << "Entrez un caractère : ";
+	cin >> rect;
+	cout << endl;
+	rectangle.drawArea(rect);
+	cout << endl;
+	rectangle.drawPerimeter(rect);
 
 
 }
